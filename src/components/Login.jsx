@@ -9,6 +9,9 @@ const Login = ({ setAlert }) => {
     console.log({ email, password });
     if (email.trim() === "test@test.com" && password.trim() === "123123") {
       setAlert({ error: false, msg: "Login successful", color: "success" });
+      // Reset form
+      setEmail("");
+      setPassword("");
       return;
     }
     setAlert({
@@ -27,6 +30,7 @@ const Login = ({ setAlert }) => {
         id="email"
         onChange={(e) => setEmail(e.target.value)}
         className="form-control mb-2"
+        value={email}
       />
       <label htmlFor="password">Password</label>
       <input
@@ -35,6 +39,7 @@ const Login = ({ setAlert }) => {
         id="password"
         onChange={(e) => setPassword(e.target.value)}
         className="form-control mb-2"
+        value={password}
       />
       <button
         type="submit"
